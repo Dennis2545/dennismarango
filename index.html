@@ -1,0 +1,238 @@
+<header>
+  
+  <script>
+	const $ = document;
+let img = $.querySelector("img");
+let title = $.querySelector("h4");
+let span = $.querySelector("span");
+let text = $.querySelector("p");
+let pre = $.getElementsByClassName("pre")[0];
+let next = $.getElementsByClassName("next")[0];
+
+const data = [
+  {
+    id: 1,
+    img: "https://randomuser.me/api/portraits/women/72.jpg",
+    title: "lorem epson",
+    span: "Web developer",
+    text: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. ipsum dolor sit amet consecteturipsum dolor sit amet consectetur ",
+  },
+  {
+    id: 2,
+    img: "https://randomuser.me/api/portraits/women/79.jpg",
+    title: "many pixels",
+    span: "Back-End developer",
+    text: "Lorem ipsum ipsum dolor sit amet consectetur adipisicing elit. ipsum dolor sit amet consectetur",
+  },
+  {
+    id: 3,
+    img: "https://randomuser.me/api/portraits/men/0.jpg",
+    title: "scarllet jon",
+    span: "Front-End developer",
+    text: "Lorem ipsum dolor sitipsum dolor sit amet consecteturcteturipsum dolor sit amet consectetur, adipisicing elit.",
+  },
+  {
+    id: 4,
+    img: "https://randomuser.me/api/portraits/men/84.jpg",
+    title: "Thomas shelby",
+    span: "Web developer",
+    text: "Loipsum dolor sit amet conser sit amet consecteturipsum dolor sit amet consecteturipsum dolor sit amet consecteturtetur ",
+  },
+];
+
+let current = 1;
+
+// upload data in first
+window.onload = () => {
+  setData(data);
+};
+
+// add pre logic
+pre.addEventListener("click", () => {
+  if (current != 1) {
+    current--;
+  } else {
+    current = 4;
+  }
+
+  setData(data);
+});
+
+// add next logic
+next.addEventListener("click", () => {
+  if (current != 4) {
+    current++;
+  } else {
+    current = 1;
+  }
+
+  setData(data);
+});
+
+// set variables
+const setData = (arr) => {
+  img.src = arr[current - 1].img;
+  title.innerText = arr[current - 1].title;
+  span.innerText = arr[current - 1].span;
+  text.innerText = arr[current - 1].text;
+};
+</script>
+	
+	
+	
+<style>@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  transition: all 0.3s;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 100vh;
+  background-image: url("https://wallpaperaccess.com/full/1261770.jpg");
+    background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 50px;
+  background-color: #ddd;
+  border-bottom: 1px solid #bbb;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.logo {
+  color: rgb(161, 60, 255);
+}
+
+.myName {
+  color: #333;
+  font-size: 22px;
+  font-family: "Pacifico", cursive;
+}
+
+img {
+  max-width: 150px;
+  clip-path: circle();
+  z-index: 2;
+}
+
+.img_con {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.back {
+  background-color: blueviolet;
+  min-width: 130px;
+  min-height: 130px;
+  border-radius: 50%;
+  position: absolute;
+  left: 10%;
+  bottom: 5px;
+  z-index: 1;
+}
+
+.container {
+  background-color: #fff;
+  max-width: 600px;
+  padding: 1.5rem;
+  display: flex;
+  height: 400px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+}
+
+h4 {
+  text-align: center;
+  font-size: 22px;
+  margin-top: 6px;
+  letter-spacing: 2px;
+  font-weight: 900;
+}
+
+span {
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+p {
+  text-align: center;
+}
+
+.pre,
+.next {
+  outline: none;
+  background: none;
+  border: none;
+  font-size: 40px;
+  color: blueviolet;
+  opacity: 0.7;
+  transition: color 0.3s;
+  cursor: pointer;
+}
+
+.pre:hover {
+  color: #333;
+}
+
+.next:hover {
+  color: #333;
+}
+
+.sup {
+  outline: none;
+  background: none;
+  border-color: blueviolet;
+  padding: 2px 8px;
+  font-size: 16px;
+  border-radius: 6px;
+  color: blueviolet;
+  transition: all 0.3;
+  cursor: pointer;
+}
+
+.sup:hover {
+  background-color: blueviolet;
+  color: #fff;
+  padding: 2px 32px;
+}</style>
+      <div class="logo">Review Carousel</div>
+      <div class="myName">Ehsan Shahbazi</div>
+    </header>
+    <div class="container">
+      <div class="img_con">
+        <img src="" alt="logo" />
+        <div class="back"></div>
+      </div>
+      <h4></h4>
+      <span></span>
+      <p></p>
+      <div>
+        <button class="pre"></button>
+        <button class="next">></button>
+      </div>
+      <button class="sup">Surprise Me</button>
+    </div>
